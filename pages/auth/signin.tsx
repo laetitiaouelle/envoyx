@@ -4,6 +4,7 @@ import { svg1 } from '../../src/constant/image'
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 function Signin() {
     const router = useRouter()
@@ -60,7 +61,7 @@ function Signin() {
                     </form>
                     <div className='flex items-center justify-center gap-2 mb-10 mt-4' >
                         <span className='block text-text-light text-xs' > {"Don't have an account ?"} </span>
-                        <a href='/auth/signup' className='cursor-pointer text-main-red text-xs font-bold ' > {"Sign up"} </a>
+                        <Link href='/auth/signup' className='cursor-pointer text-main-red text-xs font-bold ' > {"Sign up"} </Link>
                     </div>
                 </motion.div>
             </div>
