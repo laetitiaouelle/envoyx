@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ClinicCard from '../../../components/dashboard/ClinicCard';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+import DialogBox from '../../../components/dashboard/Dialog';
+import CreateClinic from './action/CreateClinic';
 
 function Clinics() {
-
+  const [isOpen, setIsOpen] = useState(false)
   const clinics = [
     {
       id: 'CLINIC_A_ID',
@@ -41,9 +43,9 @@ function Clinics() {
   ];
   
   return (
-    <div className='mt-10' >
+    <div className='p-5 ' >
        <div className='mb-4 w-full flex justify-end'>
-          <motion.a initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}} whileTap={{scale:1.2}}  className='text-[#fff] font-semibold bg-main-blue w-[200px] h-10 flex items-center justify-center rounded-[10px] cursor-pointer text-xs ' >
+          <motion.a onClick={()=>setIsOpen(true)} initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}} whileTap={{scale:1.2}}  className='text-[#fff] font-semibold bg-main-blue w-[200px] h-10 flex items-center justify-center rounded-[10px] cursor-pointer text-xs ' >
               {"Add a new clinic"}
           </motion.a>
         </div>
@@ -60,6 +62,17 @@ function Clinics() {
             clinics.map((clinic, index)=> <motion.div key={index} initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.3*(index+1)}}>< ClinicCard   clinic={clinic}/></motion.div>  )
           }
         </div>
+        <AnimatePresence>
+            {
+            isOpen && (
+                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7}} exit={{opacity:0}} >
+                    <DialogBox showDialog={() => setIsOpen(!isOpen)} title={'Add a new clinic'}>
+                        <CreateClinic/>
+                    </DialogBox>
+                </motion.div>
+            )
+            }
+        </AnimatePresence>
     </div>
   )
 

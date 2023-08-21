@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InvoiceCard from '../../../components/dashboard/InvoiceCard'
 import {BsArrowLeft, BsArrowRight} from 'react-icons/bs'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import DialogBox from '../../../components/dashboard/Dialog'
+import CreateInvoice from './action/CreateInvoice'
 
 function Invoices() {
 
@@ -57,11 +59,12 @@ function Invoices() {
             actions: '',
         },
     ]
+    const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className='mt-10' >
         <div className='mb-4 w-full flex justify-end'>
-            <motion.a initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}} whileTap={{scale:1.2}} className='text-[#fff] font-semibold bg-main-blue w-[200px] h-10 flex items-center justify-center rounded-[10px] cursor-pointer text-xs ' >
+            <motion.a onClick={()=>setIsOpen(true)} initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.5}} whileTap={{scale:1.2}} className='text-[#fff] font-semibold bg-main-blue w-[200px] h-10 flex items-center justify-center rounded-[10px] cursor-pointer text-xs ' >
                 {"Add a new invoice"}
             </motion.a>
         </div>
@@ -104,6 +107,17 @@ function Invoices() {
                 <BsArrowRight color='#9797bb' />
             </span>
         </div>
+        <AnimatePresence>
+            {
+            isOpen && (
+                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7}} exit={{opacity:0}} >
+                    <DialogBox showDialog={() => setIsOpen(!isOpen)} title={'Create invoice'}>
+                        <CreateInvoice/>
+                    </DialogBox>
+                </motion.div>
+            )
+            }
+        </AnimatePresence>
     </div>
   )
 }
