@@ -22,7 +22,11 @@ module.exports = {
       'text-light': "#9797bb",
       'text-dark-2': "#332f4f",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        lato: ['var(--font-lato)'],
+      },
+    },
   },
   plugins: [],
 }

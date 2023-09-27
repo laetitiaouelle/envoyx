@@ -6,8 +6,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -17,6 +15,15 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+.gradA{
+  background: -webkit-linear-gradient(left, #5e81f4 , yellow);
+  background: -o-linear-gradient(right, #5e81f4, yellow);
+  background: -moz-linear-gradient(right, #5e81f4, yellow);
+  background: linear-gradient(to right, #5e81f4 , yellow); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
