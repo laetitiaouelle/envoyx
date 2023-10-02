@@ -2,6 +2,9 @@ import { DashboardRouterProvider } from '../src/context/DashboardRouterContext'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Lato } from 'next/font/google'
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const lato = Lato({
   subsets: ['latin'],
@@ -12,6 +15,15 @@ const lato = Lato({
 
 
 export default function App({ Component, pageProps }: AppProps) {
+
+  useEffect(() => {
+   AOS.init({
+    duration:800,
+    once: false
+   })
+  }, [])
+  
+
   return <main  className={`${lato.variable} bg-[#fff] `}><DashboardRouterProvider><Component  {...pageProps} /></DashboardRouterProvider></main>
   
 }
