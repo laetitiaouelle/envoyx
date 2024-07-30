@@ -68,7 +68,7 @@ function ClinicCard({clinic}:{clinic: any}) {
             <span className='px-3 py-2 text-main-purple bg-main-purple bg-opacity-10 text-[10px] rounded-[7px] ' > {"ASCOMA"} </span>
             <span className='px-3 py-2 text-main-purple bg-main-purple bg-opacity-10 text-[10px] rounded-[7px] ' > {"MUGEFCI"} </span>
             <span className='px-3 py-2 text-main-purple bg-main-purple bg-opacity-10 text-[10px] rounded-[7px] ' >  {"CIGNA"} </span>
-            <span className='px-3 py-2 text-main-purple bg-main-purple bg-opacity-10 text-[10px] rounded-[7px] ' > {"BIL ASSURANCE"} </span>
+            <span className='px-3 py-2 text-main-purple bg-main-purple bg-opacity-10 text-[10px] rounded-[7px] ' > {"BIL"} </span>
           </div>
 
           <div className='my-6' ></div>

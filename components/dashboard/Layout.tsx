@@ -8,7 +8,7 @@ import { DashboardRouterContext } from '../../src/context/DashboardRouterContext
 import { motion } from 'framer-motion'
 
 function Layout({children}:{children: ReactNode}) {
-  const {dispatchRoute} = useContext(DashboardRouterContext)
+  const {routerState, dispatchRoute} = useContext(DashboardRouterContext) 
   return (
     <div className='h-screen w-full bg-white-two  flex' >
       <div className='w-[240px] h-full bg-white-one pl-10 py-10' >
@@ -18,21 +18,21 @@ function Layout({children}:{children: ReactNode}) {
         </div>
         <div className='mt-[70px]' >
           <ul className='flex flex-col gap-14 ' >
-            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}}  onClick={()=>dispatchRoute({type:'CHANGE', payload:'DASHBOARD'})}  className=' flex items-center gap-7 border-r-main-blue border-r-[2px] cursor-pointer ' >
-                <span className='bock' ><LuLayoutDashboard color='#5e81f4' /></span>
-                <span className='text-text-dark font-bold text-xs' > {"Dashboard"} </span>
+            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}}  onClick={()=>dispatchRoute({type:'CHANGE', payload:'DASHBOARD'})}  className={` flex items-center gap-7 ${routerState ==="DASHBOARD"? 'border-r-main-blue border-r-[2px]':''} cursor-pointer`} >
+                <span className='bock' ><LuLayoutDashboard color={`${routerState ==="DASHBOARD"?'#5e81f4':'#9797bb'}`} /></span>
+                <span className={` font-bold text-xs ${routerState ==="DASHBOARD"?'text-text-dark':'text-text-light'}`} > {"Dashboard"} </span>
             </motion.li>
-            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'INVOICES'})} className=' flex items-center gap-7 cursor-pointer' >
-                <span className='bock' ><LiaFileInvoiceDollarSolid color='#9797bb' /></span>
-                <span className='text-text-light font-bold text-xs' > {"Invoices"} </span>
+            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'INVOICES'})} className={` flex items-center gap-7 ${routerState ==="INVOICES"? 'border-r-main-blue border-r-[2px]':''} cursor-pointer`} >
+                <span className='bock' ><LiaFileInvoiceDollarSolid color={`${routerState ==="INVOICES"?'#5e81f4':'#9797bb'}`} /></span>
+                <span className={` font-bold text-xs ${routerState ==="INVOICES"?'text-text-dark':'text-text-light'}`} > {"Invoices"} </span>
             </motion.li>
-            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'CLINICS'})} className=' flex items-center gap-7 cursor-pointer' >
-                <span className='bock' ><CiHospital1 color='#9797bb' /></span>
-                <span className='text-text-light font-bold text-xs' > {"Clinics"} </span>
+            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'CLINICS'})} className={` flex items-center gap-7 ${routerState ==="CLINICS"? 'border-r-main-blue border-r-[2px]':''} cursor-pointer`} >
+                <span className='bock' ><CiHospital1 color={`${routerState ==="CLINICS"?'#5e81f4':'#9797bb'}`} /></span>
+                <span className={` font-bold text-xs ${routerState ==="CLINICS"?'text-text-dark':'text-text-light'}`} > {"Clinics"} </span>
             </motion.li>
-            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'INSURANCES'})} className=' flex items-center gap-7 cursor-pointer' >
-                <span className='bock' ><HiOutlineBuildingOffice2 color='#9797bb' /></span>
-                <span className='text-text-light font-bold text-xs' > {"Insurances"} </span>
+            <motion.li initial={{opacity:0, x:10}} animate={{opacity:1, x:0}} transition={{duration:0.5}} onClick={()=>dispatchRoute({type:'CHANGE', payload:'INSURANCES'})} className={` flex items-center gap-7 ${routerState ==="INSURANCES"? 'border-r-main-blue border-r-[2px]':''} cursor-pointer`} >
+                <span className='bock' ><HiOutlineBuildingOffice2 color={`${routerState ==="INSURANCES"?'#5e81f4':'#9797bb'}`} /></span>
+                <span className={` font-bold text-xs ${routerState ==="INSURANCES"?'text-text-dark':'text-text-light'}`} > {"Insurances"} </span>
             </motion.li>
           </ul>
         </div>
