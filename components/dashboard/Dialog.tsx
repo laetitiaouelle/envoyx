@@ -6,12 +6,11 @@ import { motion } from 'framer-motion'
 
 export default function DialogBox(
         {
-            showDialog, title, className, children
+            showDialog, title, children
         }:
         {
             showDialog: ()=>void,
             title: string, 
-            className: string,
             children: ReactNode
         }
     ) {
@@ -24,7 +23,7 @@ export default function DialogBox(
   return (
 
     <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className={`relative z-10 ${className}`} onClose={()=>closeModal}>
+        <Dialog as="div" className={`relative z-10`} onClose={()=>closeModal}>
             <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -48,7 +47,7 @@ export default function DialogBox(
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                     >
-                    <Dialog.Panel className={`transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all bg-[#fff] ${className} `}>
+                    <Dialog.Panel className={`transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all bg-[#fff]`}>
                         <Dialog.Title as="h3" className=" mb-5 text-lg font-medium leading-6 text-gray-900 flex items-center justify-between " >
                             <div className=' flex items-center text-text-dark-2 gap-3 ' >
                                 <span> <MdOutlinePlaylistAddCheckCircle size={20} /> </span>

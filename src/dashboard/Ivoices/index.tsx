@@ -117,7 +117,7 @@ function Invoices() {
             {
             isOpen && (
                 <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7}} exit={{opacity:0}} >
-                    <DialogBox className='' showDialog={() => setIsOpen(!isOpen)} title={'Create invoice'}>
+                    <DialogBox showDialog={() => setIsOpen(!isOpen)} title={'Create invoice'}>
                         <CreateInvoice/>
                     </DialogBox>
                 </motion.div>

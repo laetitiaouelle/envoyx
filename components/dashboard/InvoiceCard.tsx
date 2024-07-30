@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import {FiEye, FiEdit2, FiTrash} from 'react-icons/fi'
-import DialogBox from './Dialog'
 import InvoiceDetail from './invoices/InvoiceDetail'
 import DetailDialogBox from './DetailDialog'
 
