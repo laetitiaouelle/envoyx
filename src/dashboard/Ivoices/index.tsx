@@ -115,13 +115,13 @@ function Invoices() {
         </div>
         <AnimatePresence>
             {
-            isOpen && (
-                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7}} exit={{opacity:0}} >
-                    <DialogBox showDialog={() => setIsOpen(!isOpen)} title={'Create invoice'}>
-                        <CreateInvoice/>
-                    </DialogBox>
-                </motion.div>
-            )
+                isOpen && (
+                    <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.7}} exit={{opacity:0}} >
+                        <DialogBox showDialog={() => setIsOpen(!isOpen)} title={'Create invoice'}>
+                            <CreateInvoice/>
+                        </DialogBox>
+                    </motion.div>
+                )
             }
         </AnimatePresence>
     </div>

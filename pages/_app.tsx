@@ -5,6 +5,7 @@ import { Lato } from 'next/font/google'
 import { useEffect } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { ClinicDashboardRouterProvider } from '../src/context/ClinicDashboardRouterContext'
 
 const lato = Lato({
   subsets: ['latin'],
@@ -12,7 +13,6 @@ const lato = Lato({
   weight: ['100','300','400','700'],
   variable: '--font-lato',
 })
-
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -23,7 +23,14 @@ export default function App({ Component, pageProps }: AppProps) {
    })
   }, [])
   
-
-  return <main  className={`${lato.variable} bg-[#fff] `}><DashboardRouterProvider><Component  {...pageProps} /></DashboardRouterProvider></main>
-  
+  return (
+    <main  className={`${lato.variable} bg-[#fff]`}>
+      <DashboardRouterProvider>
+        <ClinicDashboardRouterProvider>
+          <Component  {...pageProps} />
+        </ClinicDashboardRouterProvider>
+      </DashboardRouterProvider>
+      
+    </main>
+  )
 }
