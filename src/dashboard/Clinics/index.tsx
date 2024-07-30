@@ -61,7 +61,7 @@ function Clinics() {
         </div>
         <div className='grid grid-cols-3 gap-5' >
           {
-            clinics.map((clinic, index)=> <Link href={'/clinic/dashboard'} target='_blank' ><motion.div key={index} initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.3*(index+1)}}>< ClinicCard   clinic={clinic}/></motion.div></Link>  )
+            clinics.map((clinic, index)=> <Link key={index} href={'/clinic/dashboard'} target='_blank' ><motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0}} transition={{duration:0.3*(index+1)}}>< ClinicCard   clinic={clinic}/></motion.div></Link>  )
           }
         </div>
         <AnimatePresence>
