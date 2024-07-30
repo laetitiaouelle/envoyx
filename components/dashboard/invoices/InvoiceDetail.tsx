@@ -19,7 +19,7 @@ function InvoiceDetail() {
                     <div className='text-[10px] uppercase text-text-dark'>
                         Abidjan, Cocody, Rue Cannebière,
                         <br></br>Av. Joseph Blohorn 01 BP 1463 Abidjan 01
-                        <br></br>Côte d'Ivoire
+                        <br></br>Côte d&apos;Ivoire
                     </div>
                 </div>
                 <div className='col-span-1 flex flex-col items-end ' >
